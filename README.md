@@ -79,6 +79,9 @@ Usamos modelos preentrenados (como ResNet) y los ajustamos finamente a Fashion M
 - Mejor pérdida de validación: **0.6940**.
 - Gráficas de pérdida y precisión muestran que el modelo se acerca a su límite en esta configuración, pero las mejoras aplicadas ayudaron a estabilizar el entrenamiento y evitar el sobreajuste.
 
+<!-- include image from last training kaggle/fashion-mnist/cnnv4/epoch_66_plot-cnn-v4.png  -->
+![alt cnn training](cnnv4/epoch_66_plot-cnn-v4.png "CNN Training")
+
 ---
 
 ## 4. **Conclusión**
