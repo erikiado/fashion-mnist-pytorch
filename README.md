@@ -41,42 +41,43 @@ Algunos errores frecuentes del modelo ocurrían entre clases similares, como "Ca
 Usamos técnicas de aumento de datos para mejorar la capacidad del modelo de generalizar:
 
 - **Rotación, escalado y traslación**: Estas transformaciones generan versiones ligeramente diferentes de las imágenes originales.
-- **MixUp y CutMix**: Técnicas avanzadas que combinan imágenes y etiquetas de manera aleatoria, forzando al modelo a aprender patrones más generales.
   ```python
-  def mixup_data(x, y, alpha=1.0):
-      lam = np.random.beta(alpha, alpha)
-      batch_size = x.size()[0]
-      index = torch.randperm(batch_size)
-      mixed_x = lam * x + (1 - lam) * x[index, :]
-      y_a, y_b = y, y[index]
-      return mixed_x, y_a, y_b, lam
+  train_transform = transforms.Compose([
+      transforms.RandomHorizontalFlip(),
+      transforms.RandomRotation(12),
+      transforms.RandomAffine(0, translate=(0.15, 0.15), shear=15, scale=(0.85, 1.15)),
+      transforms.RandomResizedCrop(28, scale=(0.85, 1.0), ratio=(0.9, 1.05)),
+      transforms.ToTensor(),
+      transforms.Normalize((0.5,), (0.5,))
+  ])
+
+  val_transform = transforms.Compose([
+      transforms.ToTensor(),
+      transforms.Normalize((0.5,), (0.5,))
+  ])
   ```
 
 ### 2.3 Arquitectura del Modelo
 
 1. **Bloques SE**: Estos ayudan al modelo a enfocar su atención en las características más relevantes de cada canal de la imagen.
-2. **Módulos CBAM**: Como alternativa, probamos un módulo de atención más avanzado (Convolutional Block Attention Module).
 3. **Modelos más profundos**: Experimentamos con arquitecturas más profundas, como ResNet18, para mejorar la capacidad del modelo.
 
 ### 2.4 Ajuste de Hiperparámetros
 - **Batch size**: Probamos diferentes tamaños (16, 64) para mejorar la estabilidad del entrenamiento.
 - **Optimizadores**: Probamos AdamW y SGD con momentum para encontrar el mejor ajuste.
-- **Learning rate scheduler**: Ajustamos la tasa de aprendizaje automáticamente durante el entrenamiento para evitar quedarse atascados en óptimos locales.
+- **Learning rate scheduler**: Ajustamos la tasa de aprendizaje automáticamente y manualmente durante el entrenamiento para evitar quedarse atascados en óptimos locales, intercambiando planificadores de learning rate para probar diferentes comportamientos de aprendizaje.
 
 ### 2.5 Distilación de Conocimiento
 Entrenamos un modelo más grande ("maestro") y usamos sus predicciones para guiar a nuestro modelo final ("estudiante"). Esto mejora el aprendizaje del modelo pequeño sin necesidad de entrenarlo desde cero.
 
-### 2.6 Ensambles
-Entrenamos varios modelos con ligeras diferencias en sus arquitecturas y combinamos sus predicciones para mejorar la precisión general.
-
-### 2.7 Transfer Learning
+### 2.6 Transfer Learning
 Usamos modelos preentrenados (como ResNet) y los ajustamos finamente a Fashion MNIST para aprovechar patrones ya aprendidos en otras tareas.
 
 ---
 
 ## 3. **Resultados Obtenidos**
-- Precisión máxima alcanzada: **91.39%**.
-- Mejor pérdida de validación: **0.6940**.
+- Precisión máxima alcanzada en CNN: **91.39%**.
+- Mejor pérdida de validación en CNN: **0.6940**.
 - Gráficas de pérdida y precisión muestran que el modelo se acerca a su límite en esta configuración, pero las mejoras aplicadas ayudaron a estabilizar el entrenamiento y evitar el sobreajuste.
 
 <!-- include image from last training kaggle/fashion-mnist/cnnv4/epoch_66_plot-cnn-v4.png  -->
