@@ -73,6 +73,8 @@ Entrenamos un modelo más grande ("maestro") y usamos sus predicciones para guia
 ### 2.6 Transfer Learning
 Usamos modelos preentrenados (como ResNet) y los ajustamos finamente a Fashion MNIST para aprovechar patrones ya aprendidos en otras tareas.
 
+https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
+
 ---
 
 ## 3. **Resultados Obtenidos**
@@ -83,6 +85,7 @@ Usamos modelos preentrenados (como ResNet) y los ajustamos finamente a Fashion M
 <!-- include image from last training kaggle/fashion-mnist/cnnv4/epoch_66_plot-cnn-v4.png  -->
 ![alt cnn training from 0](cnnv4/epoch_16_plot-cnn-v4.png "CNN Training from 0")
 ![alt cnn training](cnnv4/epoch_66_plot-cnn-v4.png "CNN Training")
+![alt cnn training results](cnnv4/last_cnn_fashion_results.png "CNN Training Results")
 
 ---
 
@@ -90,4 +93,7 @@ Usamos modelos preentrenados (como ResNet) y los ajustamos finamente a Fashion M
 Este proyecto demuestra cómo aplicar técnicas avanzadas de deep learning y optimización para resolver un problema clásico de clasificación de imágenes. Las decisiones tomadas, como el manejo de clases difíciles, el aumento de datos y el ajuste de hiperparámetros, son estrategias importantes para cualquier principiante que busque aprender y mejorar en este campo.
 
 Si tienes dudas o sugerencias, ¡no dudes en contribuir! 🚀
+
+
+
 
