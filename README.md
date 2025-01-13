@@ -78,8 +78,8 @@ https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
 ---
 
 ## 3. **Resultados Obtenidos**
-- Precisión máxima alcanzada en CNN: **91.39%**.
-- Mejor pérdida de validación en CNN: **0.6940**.
+- Precisión máxima alcanzada en CNN: **91.10%**.
+- Mejor pérdida de validación en CNN: **0.6933**.
 - Gráficas de pérdida y precisión muestran que el modelo se acerca a su límite en esta configuración, pero las mejoras aplicadas ayudaron a estabilizar el entrenamiento y evitar el sobreajuste.
 
 <!-- include image from last training kaggle/fashion-mnist/cnnv4/epoch_66_plot-cnn-v4.png  -->
