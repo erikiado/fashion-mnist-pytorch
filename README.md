@@ -80,6 +80,7 @@ Usamos modelos preentrenados (como ResNet) y los ajustamos finamente a Fashion M
 - Gráficas de pérdida y precisión muestran que el modelo se acerca a su límite en esta configuración, pero las mejoras aplicadas ayudaron a estabilizar el entrenamiento y evitar el sobreajuste.
 
 <!-- include image from last training kaggle/fashion-mnist/cnnv4/epoch_66_plot-cnn-v4.png  -->
+![alt cnn training from 0](cnnv4/epoch_16_plot-cnn-v4.png "CNN Training from 0")
 ![alt cnn training](cnnv4/epoch_66_plot-cnn-v4.png "CNN Training")
 
 ---
