@@ -78,6 +78,7 @@ https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
 ---
 
 ## 3. **Resultados Obtenidos**
+### 3.1 Red Neuronal Convolucional
 - Precisión máxima alcanzada en CNN: **91.10%**.
 - Mejor pérdida de validación en CNN: **0.6933**.
 - Gráficas de pérdida y precisión muestran que el modelo se acerca a su límite en esta configuración, pero las mejoras aplicadas ayudaron a estabilizar el entrenamiento y evitar el sobreajuste.
@@ -85,8 +86,13 @@ https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
 <!-- include image from last training kaggle/fashion-mnist/cnnv4/epoch_66_plot-cnn-v4.png  -->
 ![alt cnn training from 0](cnnv4/epoch_16_plot-cnn-v4.png "CNN Training from 0")
 ![alt cnn training](cnnv4/epoch_66_plot-cnn-v4.png "CNN Training")
-![alt cnn training results](cnnv4/last_cnn_fashion_results.png "CNN Training Results")
+![alt cnn results](cnnv4/last_cnn_fashion_results.png "CNN Results")
 
+### 3.2 Transfer Learning Resnet
+- Precisión máxima alcanzada en Resnet: **94.10%**.
+- Mejor pérdida de validación en Resnet: **0.1660**.
+![alt resnet training](resnet/training.png "Transfer Learning Training")
+![alt resnet results](resnet/accuracy.png "Transfer Learning Results")
 ---
 
 ## 4. **Conclusión**
